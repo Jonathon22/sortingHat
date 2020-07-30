@@ -3,8 +3,6 @@
 const  sortingButtonClick = () => {
   document.querySelector('#sort-button').addEventListener('click', buildForm);
 
-  
-  
 }
 
 const printToDom = (divId, textToPrint ) => {
@@ -22,7 +20,7 @@ const buildForm = () => {
       <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Student Name">
     </div>
     <div class="col-auto">
-      <button type="submit" class="btn btn-primary mb-2">Sort!</button>
+      <button type="submit" class="btn btn-primary mb-2" id="nameButton">Sort!</button>
     </div>
   </div>
 </form>`
@@ -32,9 +30,39 @@ const buildForm = () => {
 
 
 printToDom('#form', domString)
+nameButtonClick();
+
+
 }
+const nameButtonClick = () => {
+  document.querySelector("#nameButton").addEventListener('click', getName);
+}
+
+
+let studentNames = []; 
+
+
+const getName = () => {
+  const name = document.getElementById("inlineFormInput").value;
+  
+   return studentNames.push(name);
+   
+  
+  // console.log(studentNames);
+  
+
+  // console.log(name);
+}
+
+const buildCard = () => {
+
+}
+
+
+
 const init = () => {
  sortingButtonClick();
+
 }
 
 init();
