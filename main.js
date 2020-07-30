@@ -43,17 +43,22 @@ const getName = () => {
 };
 
 const buildCard = () => {
-      let domString = '';
-    const houses = ['gryffindor', 'slytherin', 'hufflepuff', 'ravenclaw']
 
-      for(let i=0; i < studentNames.length; i++) {
-       domString += ` <div class="card" style="width: 18rem;">`;
-        domString +=     `<div class="card-body">`;
-        domString +=   `<h5 class="card-title">${studentNames[i]}</h5>`;
-        domString +=    ` <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>`;
-      domString += `</div></div>`;
-      
-      }
+  let domString = '';
+  const houses = ['Gryffindor','hufflepuff', 'Slytherin', 'Ravenclaw' ]
+
+  for(let i=0; i < studentNames.length; i++) {
+    let housePicker = Math.floor(Math.random() * 4)
+   domString += ` <div class="card" style="width: 18rem;">`;
+    domString +=     `<div class="card-body">`;
+    domString +=   `<h5 class="card-title">${studentNames[i]}</h5>`;
+    domString +=    ` <h6 class="card-subtitle mb-2 text-muted">${houses[housePicker]}</h6>`;
+  domString += `</div></div>`;
+  
+  }
+
+     
+
       
 printToDom("#studentCard", domString);
 };
