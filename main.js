@@ -44,6 +44,8 @@ const getName = () => {
 
 const buildCard = () => {
       let domString = '';
+    const houses = ['gryffindor', 'slytherin', 'hufflepuff', 'ravenclaw']
+
       for(let i=0; i < studentNames.length; i++) {
        domString += ` <div class="card" style="width: 18rem;">`;
         domString +=     `<div class="card-body">`;
