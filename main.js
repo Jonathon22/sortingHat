@@ -43,6 +43,7 @@ const getName = () => {
 };
 
 const buildCard = () => {
+
   let domString = '';
   const houses = ['Gryffindor','hufflepuff', 'Slytherin', 'Ravenclaw' ]
 
@@ -55,6 +56,9 @@ const buildCard = () => {
   domString += `</div></div>`;
   
   }
+
+     
+
       
 printToDom("#studentCard", domString);
 };
