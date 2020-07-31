@@ -1,5 +1,5 @@
 "use strict";
-const houses = ['Gryffindor','hufflepuff', 'Slytherin', 'Ravenclaw' ]
+// const houses = ['Gryffindor','hufflepuff', 'Slytherin', 'Ravenclaw' ]
 
 const sortingButtonClick = () => {
   document.querySelector("#sort-button").addEventListener("click", buildForm);
@@ -40,18 +40,14 @@ let studentNames = [];
 
 const getName = () => {
   const name =  document.getElementById("inlineFormInput").value
-  studentNames.push({name: name, house: houses[getHouse()]});
-     
-  
-
-  return studentNames.push(name);
-
-  
-
+  studentNames.push({name: name, house:[getHouse()]});
+    //  return studentNames.push(name);
 };
 
 const getHouse = () => {
-  return Math.floor(Math.random() * 4)
+  const houseNames = ['Gryffindor','hufflepuff', 'Slytherin', 'Ravenclaw' ]
+  let randomHouse= houseNames[Math.floor(Math.random() * houseNames.length)];
+  return randomHouse;
 }
 
 
@@ -61,14 +57,15 @@ const buildCard = () => {
   // const houses = ['Gryffindor','hufflepuff', 'Slytherin', 'Ravenclaw' ]
 
   for(let i=0; i < studentNames.length; i++) {
-    let housePicker = Math.floor(Math.random() * 4)
+    // let housePicker = Math.floor(Math.random() * 4)
+    if (studentNames[i].name && studentNames[i].house ) {
    domString += ` <div class="card" style="width: 18rem;">`;
     domString +=     `<div class="card-body" >`;
     domString +=   `<h5 class="card-title">${studentNames[i].name}</h5>`;
     domString +=    ` <h6 class="card-subtitle mb-2 text-muted">${studentNames[i].house}</h6>`;
     domString += `<button type="button" class="btn btn-danger" id= ${i}>Expel</button>`;
   domString += `</div></div>`;
-  
+    }
   }
 
   printToDom("#studentCard", domString);
@@ -97,3 +94,8 @@ const init = () => {
 };
 
 init();
+
+
+
+
+
